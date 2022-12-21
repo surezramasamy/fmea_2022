@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+
+    <title></title>
+  </head>
+  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="container">
+
+    <div class="jumbotron">
+
+    <h1>FMEA Database </h1>
+
+      <nav class="navbar navbar-default navbar-static-top"
+      <ul  class="nav navbar-nav">
+      <h2>
+        <li><a class="navbar-link", href="{% url "admin:index" %}">Admin</a></li>
+       
+        <li><a class="navbar-link" href="{% url "add_post" %}">FMEA Entry</a></li><br>
+       
+       
+      </h2>
+    </nav>
+
+    {% if access_records_fmea %}
+
+    <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+
+
+  <table id="customers">
+
+      <caption>FMEA STATUS</caption>
+
+     <thead>
+         <th>Part_Names</th>
+         <th>Process/Function</th>
+         <th>RPN</th>
+         <th>Actions_Taken</th>
+         <th> RPN_Rev</th>
+    </thead>
+
+      {% for ac in access_records_fmea %}
+      {% if ac.RPN > 100 %}
+
+      <tr:hover {background-color: #f5f5f5;}>
+        <td>{{ac.part_names}}</td>
+        <td>{{ac.Process_OR_Function}}</td>
+        <td>{{ ac.RPN }}</td>
+        <td>{{ ac.Actions_Taken }}</td>
+        <td>{{ ac.RPN_Rev }}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+  </table>
+  {% else %}
+    <p>NO ACCESS RECORD</p>
+  {% endif %}
+  </div>
+  </div>
+
+
+  </body>
+</html>

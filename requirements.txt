@@ -1,0 +1,8 @@
+Django==3.2.8
+django-admin-rangefilter==0.8.1
+django-bootstrap4==3.0.1
+django-datetime-widget==0.9.3
+django-filter==21.1
+django-import-export==2.6.1
+Pillow==8.4.0
+
